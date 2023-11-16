@@ -55,7 +55,8 @@ const Layout = () => {
   const LeftSideBar = (
     <Box
       style={{
-        width: sideBarWidth,
+        width: "30%",
+        maxWidth: sideBarWidth,
         position: "fixed",
         boxSizing: "border-box",
         height: "100vh",
@@ -91,7 +92,7 @@ const Layout = () => {
     </Box>
   );
   return (
-    <Box display="flex">
+    <Box display="flex" style={{ backgroundColor: isMobile && "#0C365A" }}>
       {isMobile ? (
         <BottomNavigation
           showLabels
@@ -118,7 +119,7 @@ const Layout = () => {
         component="main"
         style={{
           flexGrow: 1,
-          padding: theme.spacing(3),
+          padding: isMobile ? 0 : theme.spacing(3),
           marginLeft: isMobile ? 0 : sideBarWidth,
         }}
       >

@@ -1,17 +1,19 @@
-import React from 'react'
-import { ReactComponent as AspireLogo } from "./../assets/icons/aspire-logo.svg";
-import { Typography, Box } from '@mui/material';
-import BalanceInfo from '../components/Cards/BalanceInfo';
-import CardsTabs from '../components/Cards/CardsTabs';
-
+import React from "react";
+import { Box, useMediaQuery } from "@mui/material";
+import BalanceInfo from "../components/Cards/BalanceInfo";
+import CardsTabs from "../components/Cards/CardsTabs";
+import { useTheme } from "@emotion/react";
 
 const Cards = () => {
-  return (
-    <Box>
-      <BalanceInfo />
-      <CardsTabs/>
-    </Box>
-  )
-}
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-export default Cards
+  return (
+    <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0 }}>
+      <BalanceInfo />
+      <CardsTabs />
+    </Box>
+  );
+};
+
+export default Cards;

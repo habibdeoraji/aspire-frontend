@@ -55,6 +55,10 @@ const theme = createTheme({
       main: customColors.grey[300],
       ...customColors.grey,
     },
+    white: {
+      main: customColors.white[50],
+      ...customColors.white,
+    },
     whiteShades: customColors.white,
     greenShades: customColors.green,
     blueShades: customColors.blue,
