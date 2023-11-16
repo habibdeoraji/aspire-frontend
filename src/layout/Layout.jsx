@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import {
-  useTheme,
   useMediaQuery,
-  Drawer,
   List,
+  Text,
   ListItem,
   ListItemIcon,
   ListItemText,
@@ -12,11 +11,13 @@ import {
   BottomNavigationAction,
   Box,
 } from "@material-ui/core";
+import { useTheme } from "@mui/material/styles";
 import { ReactComponent as HomeIcon } from "./../assets/icons/Home.svg";
 import { ReactComponent as CardIcon } from "./../assets/icons/Card.svg";
 import { ReactComponent as PaymentIcon } from "./../assets/icons/Payments.svg";
 import { ReactComponent as CreditIcon } from "./../assets/icons/Credit.svg";
 import { ReactComponent as AccountIcon } from "./../assets/icons/Account.svg";
+import { ReactComponent as AspireLogo } from "./../assets/icons/aspire-logo.svg";
 
 const navigationMenuItems = [
   {
@@ -49,22 +50,45 @@ const navigationMenuItems = [
 const Layout = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const drawerWidth = 340;
+  const sideBarWidth = 340;
 
-  const drawer = (
-    <Drawer variant="permanent" anchor="left" style={{ width: drawerWidth }}>
-      <List style={{ width: drawerWidth }}>
+  const LeftSideBar = (
+    <Box
+      style={{
+        width: sideBarWidth,
+        position: "fixed",
+        boxSizing: "border-box",
+        height: "100vh",
+        padding: "3rem",
+        paddingTop: "4rem",
+        color: theme.palette.common.white,
+        backgroundColor: theme.palette.primary.main,
+      }}
+    >
+      <div>
+        <AspireLogo />
+      </div>
+      <p style={{ fontSize: "15pt", opacity: "30%" }}>
+        Trusted way of banking for 3,000+ SMEs and startups in Singapore
+      </p>
+      <List>
         {navigationMenuItems.map((menuItem) => {
           const { text, path, icon } = menuItem;
           return (
-            <ListItem button component={Link} to={path} key={path}>
+            <ListItem
+              button
+              component={Link}
+              to={path}
+              key={path}
+              style={{ marginBottom: "62px" }}
+            >
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           );
         })}
       </List>
-    </Drawer>
+    </Box>
   );
   return (
     <Box display="flex">
@@ -87,7 +111,7 @@ const Layout = () => {
           })}
         </BottomNavigation>
       ) : (
-        drawer
+        LeftSideBar
       )}
 
       <Box
@@ -95,7 +119,7 @@ const Layout = () => {
         style={{
           flexGrow: 1,
           padding: theme.spacing(3),
-          marginLeft: isMobile ? 0 : drawerWidth,
+          marginLeft: isMobile ? 0 : sideBarWidth,
         }}
       >
         <Outlet />
