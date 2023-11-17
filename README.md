@@ -1,4 +1,4 @@
-# Project Name
+# Aspire Frontend
 
 This project is a React application with a specific set of components and utilities, as outlined by the folder structure provided.
 
