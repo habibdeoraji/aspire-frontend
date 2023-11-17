@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Modal,
   Box,
@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import { ReactComponent as AddIcon } from "./../../assets/icons/add.svg";
 import { addCard } from "../../services/mockApiService";
+import { CardsContext } from "../../pages/Cards";
+import { isValidName } from "./../../utils/helperFunctions";
 
 const style = {
   position: "absolute",
@@ -19,22 +21,28 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
-    p: 4,
-  borderRadius:'12px'
+  p: 4,
+  borderRadius: "12px",
 };
 
-const AddCardModal = ({reftechCards}) => {
+const AddCardModal = () => {
   const theme = useTheme();
+  const { setCards } = useContext(CardsContext);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
-  const [cardName, setCardcardName] = useState("");
+  const [cardName, setCardName] = useState("");
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleSave = () => {
-      addCard(cardName)
-      reftechCards();
-    handleClose();
+  
+  const handleAddCard = async () => {
+    try {
+      const newCardsData = await addCard(cardName);
+      setCards(newCardsData);
+      handleClose();
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   const buttonStyle = isMobile
@@ -76,11 +84,17 @@ const AddCardModal = ({reftechCards}) => {
             id="modal-description"
             label="Card name"
             value={cardName}
-            onChange={(e) => setCardcardName(e.target.value)}
+            onChange={(e) => setCardName(e.target.value.trim())}
             fullWidth
             margin="normal"
           />
-          <Button onClick={handleSave} variant="contained" color="primary" style={{marginTop:'8px'}}>
+          <Button
+            onClick={handleAddCard}
+            variant="contained"
+            color="primary"
+            style={{ marginTop: "8px" }}
+            disabled={(cardName.length < 3) || !isValidName(cardName)}
+          >
             Add
           </Button>
         </Box>

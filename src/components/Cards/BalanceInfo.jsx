@@ -4,7 +4,7 @@ import CurrencyChip from "./CurrencyChip";
 import { useTheme } from "@emotion/react";
 import AddCardModal from "../Modals/AddCardModal";
 
-const BalanceInfo = ({reftechCards}) => {
+const BalanceInfo = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 

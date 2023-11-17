@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Box,
   Typography,
@@ -27,13 +27,15 @@ import { ReactComponent as UpArrowIcon } from "./../../assets/icons/up-arrow.svg
 import { ReactComponent as DownArrowIcon } from "./../../assets/icons/down-arrow.svg";
 
 import CardCarousel from "../ElementaryComponents/CardCarousal";
+import { CardsContext } from "../../pages/Cards";
 
 const MyDebitCard = () => {
   const theme = useTheme();
+  const { cards, setCards } = useContext(CardsContext);
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showRecentTransactions, setShowRecentTransactions] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState([]);
   const [activeCard, setActiveCard] = useState(null);
 
   useEffect(() => {
@@ -42,7 +44,8 @@ const MyDebitCard = () => {
 
   useEffect(() => {
     setActiveCard(cards[0]);
-  }, [cards, cards?.length]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cards?.length]);
 
   console.log("cards", cards);
   console.log("activeCard", activeCard);
@@ -70,11 +73,10 @@ const MyDebitCard = () => {
         card_frozen_status: !activeCard?.card_frozen_status,
       };
       cardsData[index] = updatedCardData;
+      setActiveCard(updatedCardData)
       setCards(cardsData);
-    updateCard(cardsData)
+      updateCard(cardsData)
     }
-    setCards(cardsData);
-    updateCard(cardsData)
   };
 
   console.log("card updated", cards);

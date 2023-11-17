@@ -10,6 +10,7 @@ const generateCVV = () => {
   return Math.floor(Math.random() * (999 - 100 + 1)) + 100;
 };
 
+
 const generateExpiryDate = () => {
   const month = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
   const year = Math.floor(Math.random() * (30 - 22 + 1)) + 23;
@@ -26,3 +27,9 @@ export const generateCardDetails = (cardName) => {
   };
   return cardData;
 };
+
+
+export const isValidName=(name)=> {
+  const regex = /^[A-Za-z\s]+$/;
+  return regex.test(name);
+}

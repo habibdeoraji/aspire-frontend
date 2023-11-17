@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { ReactComponent as VisibilityIcon } from "./../../assets/icons/remove_red_eye-24px.svg";
 import { ReactComponent as VisaLogo } from "./../../assets/icons/Visa Logo.svg";
+import { ReactComponent as AspireLogo } from "./../../assets/icons/Aspire Logo-1.svg";
 import { useTheme } from "@emotion/react";
 import { Button } from "@material-ui/core";
 import ShowCardNumber from "./ShowCardNumber";
@@ -31,9 +32,8 @@ const DebitCard = ({ cardDetails }) => {
         margin: isMobile && "1.5rem",
         position: "relative",
         opacity: card_frozen_status ? "50%" : "100%",
-        cursor:card_frozen_status?'pointer':'default',
+        cursor: card_frozen_status ? "pointer" : "default",
       }}
-      
       style={{ margin: "0 1rem" }}
     >
       <CardContent
@@ -52,21 +52,40 @@ const DebitCard = ({ cardDetails }) => {
             borderRadius: "6px",
             borderBottomRightRadius: 0,
             position: "absolute",
-            top: 0,
-            right: 0,
+            top: "-18px",
+            right: "-18px",
+            width: "190px",
+            display: "flex",
+            justifyContent: "space-between",
+            color: theme.palette.secondary.main,
           }}
         >
-          {showCardNumber ? <VisibilityIcon /> : <VisibilityIcon />}
-          <Typography>
+          {showCardNumber ? (
+            <VisibilityIcon style={{ color: theme.palette.secondary.main }} />
+          ) : (
+            <VisibilityIcon />
+          )}
+          <Typography
+            style={{ color: theme.palette.secondary.main, fontWeight: "bold" }}
+          >
             {showCardNumber ? "Hide" : "Show"} card number{" "}
           </Typography>
         </Button>
+        <Box
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "0.5rem",
+          }}
+        >
+          <AspireLogo />
+        </Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            marginTop: "2rem",
+            marginTop: "1rem",
           }}
         >
           <Typography
@@ -79,21 +98,10 @@ const DebitCard = ({ cardDetails }) => {
           >
             {name}
           </Typography>
-          {/* Conditionally render the card number based on showCardNumber */}
-          <ShowCardNumber card_number={ card_number} show_number={showCardNumber}/>
-          {/* {showCardNumber ? (
-            <Typography
-              sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}
-            >
-              {card_number}
-            </Typography>
-          ) : (
-            <Typography
-              sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}
-            >
-              •••• •••• •••• 2020
-            </Typography>
-          )} */}
+          <ShowCardNumber
+            card_number={card_number}
+            show_number={showCardNumber}
+          />
           <Box
             style={{
               display: "flex",
@@ -103,17 +111,21 @@ const DebitCard = ({ cardDetails }) => {
             }}
           >
             <Typography
-              variant="body2"
-              sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}
+              sx={{ fontSize: "1rem" }}
+              style={{ color: "white", fontWeight: "bold" }}
             >
               Thru: {expiry_date}
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{ fontSize: "1rem", fontWeight: "bold", color: "white" }}
+            <Box
+              style={{ color: "white", display: "flex" }}
             >
-              CVV: {cvv}
-            </Typography>
+              <Typography style={{ fontWeight: "bold", fontSize: "1rem", marginRight:'6px' }}>
+                CVV:
+              </Typography>
+              <Typography style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+                {showCardNumber ? cvv : "***"}
+              </Typography>
+            </Box>
           </Box>
         </Box>
 

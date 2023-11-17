@@ -1,28 +1,31 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import BalanceInfo from "../components/Cards/BalanceInfo";
 import CardsTabs from "../components/Cards/CardsTabs";
 import { useTheme } from "@emotion/react";
 import { getCards } from "../services/mockApiService";
 
+export const CardsContext = createContext();
+
+
 const Cards = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [myCards, setMyCards] = useState(null);
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getCards().then((fetchedCards) => setMyCards(fetchedCards));
+    getCards().then((fetchedCards) => setCards(fetchedCards));
   }, []);
 
-  const reftechCards = () => {
-    getCards().then((fetchedCards) => setMyCards(fetchedCards));
-  }
 
+  console.log('cards',cards)
   return (
-    <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0, }}>
-      <BalanceInfo myCards={myCards} />
-      <CardsTabs myCards={myCards} />
-    </Box>
+    <CardsContext.Provider value={{ cards, setCards }}>
+      <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0 }}>
+        <BalanceInfo />
+        <CardsTabs />
+      </Box>
+    </CardsContext.Provider>
   );
 };
 

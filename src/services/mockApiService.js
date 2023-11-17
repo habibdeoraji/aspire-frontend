@@ -57,8 +57,8 @@ export const addCard = (cardName) => {
     const data = fetchData();
     const newCard = generateCardDetails(cardName);
     const newData = [...data, newCard];
-    saveData(newData);
-    return Promise.resolve(newCard);
+    // saveData(newData);
+    return Promise.resolve(newData);
 };
 
 // Update an existing card

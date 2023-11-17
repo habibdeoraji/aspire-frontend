@@ -14,19 +14,11 @@ import MyDebitCard from "./MyDebitCard";
 const CardTabs=()=> {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const [value, setValue] = useState("1");
-  console.log("isMobile", isMobile);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  // const activeTabStyle = {
-  //   fontWeight: "bold",
-  //   color: isMobile?'white':theme.palette.grey[400],
-  // };
-
+  
   const containerCustomStyle = isMobile
     ? {
         padding: 0,
