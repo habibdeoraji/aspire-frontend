@@ -9,7 +9,7 @@ const Cards = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0 }}>
+    <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0, }}>
       <BalanceInfo />
       <CardsTabs />
     </Box>

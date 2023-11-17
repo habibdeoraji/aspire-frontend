@@ -96,7 +96,7 @@ const Layout = () => {
       {isMobile ? (
         <BottomNavigation
           showLabels
-          style={{ position: "fixed", bottom: 0, width: "100%" }}
+          style={{ position: "fixed", bottom: 0, width: "100%" , backgroundColor:'white', zIndex:100}}
         >
           {navigationMenuItems.map((menuItem) => {
             const { text, path, icon } = menuItem;

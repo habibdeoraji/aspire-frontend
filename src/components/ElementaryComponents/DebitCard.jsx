@@ -29,6 +29,7 @@ const DebitCard = () => {
         margin: isMobile && "1.5rem",
         position: "relative",
       }}
+      style={{margin:'1rem'}}
     >
       <CardContent
         style={{

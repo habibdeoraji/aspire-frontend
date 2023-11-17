@@ -72,7 +72,7 @@ export default function LabTabs() {
             />
           </TabList>
         </Box>
-        <TabPanel value="1" style={{...containerCustomStyle, marginTop:'1rem'}}>
+        <TabPanel value="1" style={{...containerCustomStyle, marginTop:'1rem' }}>
           <MyDebitCard />{" "}
         </TabPanel>
         <TabPanel value="2">All company cards</TabPanel>

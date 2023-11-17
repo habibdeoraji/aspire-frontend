@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Box,
   Card,
@@ -18,11 +18,21 @@ import { ReactComponent as SetSpendLimitIcon } from "./../../assets/icons/Set sp
 import { ReactComponent as AddtoGpayIcon } from "./../../assets/icons/GPay.svg";
 import { ReactComponent as ReplaceCardIcon } from "./../../assets/icons/Replace card.svg";
 import { ReactComponent as CancelCardIcon } from "./../../assets/icons/Deactivate card.svg";
+
+import { ReactComponent as CardDetailsIcon } from "./../../assets/icons/Group 11889.svg";
+import { ReactComponent as PaymentsIcon } from "./../../assets/icons/Payments.svg";
+
+import { ReactComponent as UpArrowIcon } from "./../../assets/icons/up-arrow.svg";
+import { ReactComponent as DownArrowIcon } from "./../../assets/icons/down-arrow.svg";
+
 import DebitCard from "../ElementaryComponents/DebitCard";
 import { useTheme } from "@emotion/react";
+import CardCarousel from "../ElementaryComponents/CardCarousal";
 
 const MyDebitCard = () => {
   const theme = useTheme();
+  const [showCardDetails,setShowCardDetails]=useState(false)
+  const [showRecentTransactions, setShowRecentTransactions] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const customActionButtonStyle = {
@@ -54,7 +64,7 @@ const MyDebitCard = () => {
           backgroundColor: isMobile && "#0C365A",
         }}
       >
-        <DebitCard />
+        <CardCarousel/>
         {/* Action Buttons for the Card */}
         <Box
           sx={{
@@ -105,28 +115,54 @@ const MyDebitCard = () => {
       <Box
         sx={{
           width: { xs: "100%", md: "45%" },
-          border: isMobile && 'none',
-       }}>
-        <Card  style={{borderRadius: 0,}}>
-          <List component="nav" aria-label="mailbox folders">
-            <ListItem button>
-              <ListItemIcon>
-                <FreezeCardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Card details" />
-              <IconButton edge="end" aria-label="details">
-                <SetSpendLimitIcon />
-              </IconButton>
-            </ListItem>
-            <Divider />
-            <ListItem button divider>
-              <ListItemText primary="Recent transactions" />
-              <IconButton edge="end" aria-label="transactions">
-                <SetSpendLimitIcon />
-              </IconButton>
-            </ListItem>
-          </List>
-        </Card>
+          border: isMobile && "none",
+          display: 'flex',
+          flexDirection:'column',
+          gap:'1.5rem'
+        }}
+      >
+        <Box style={{ borderRadius: '8px', boxShadow: '0 2px 12px rgba(0, 0, 0, .1)' }}>
+          <Box style={{
+            display: 'flex',
+            padding: '1.5rem',
+            backgroundColor: theme.palette.white[200],
+            borderRadius: '8px',
+            boxShadow: '0 2px 12px rgba(0, 0, 0, .1)'
+          }}>
+            <ListItemIcon>
+              <CardDetailsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Card details" />
+            <IconButton edge="end" aria-label="details" onClick={()=> setShowCardDetails(!showCardDetails)}>
+              {showCardDetails ?<UpArrowIcon/>:<DownArrowIcon />}
+            </IconButton>
+          </Box>
+          {showCardDetails && <Box style={{padding:'1.5rem'}}>
+            <Typography>Card Details</Typography>
+          </Box>}
+        </Box>
+
+        <Box style={{ borderRadius: '8px', backgroundColor:'white', border:'1px solid #FCFCFC', boxShadow: '0 2px 12px rgba(0, 0, 0, .1)' }}>
+          <Box style={{
+            display: 'flex',
+            padding: '1.5rem',
+            backgroundColor: theme.palette.white[200],
+            borderRadius: '8px',
+            boxShadow: '0 2px 12px rgba(0, 0, 0, .1)'
+          }}>
+            <ListItemIcon>
+              <PaymentsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Card details" />
+            <IconButton edge="end" aria-label="details" onClick={()=>setShowRecentTransactions(!showRecentTransactions)}>
+            {showRecentTransactions ?<UpArrowIcon/>:<DownArrowIcon />}
+            </IconButton>
+          </Box>
+          {showRecentTransactions && <Box style={{padding:'1.5rem'}}>
+          <Typography>Recent Transactions</Typography>
+          <Typography>Card Details</Typography>
+          </Box>}
+        </Box>
       </Box>
     </Box>
   );
