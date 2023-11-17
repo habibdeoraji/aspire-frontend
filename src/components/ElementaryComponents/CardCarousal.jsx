@@ -59,7 +59,7 @@ const CardCarousel = ({ cards=[],setActiveCard }) => {
   };
 
   return (
-    <Slider {...settings}>
+    <Slider {...settings} >
       {cards.map((cardDetails, index) => (
         <div key={index}>
           <DebitCard cardDetails={cardDetails} />
