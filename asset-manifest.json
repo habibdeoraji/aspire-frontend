@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/aspire-frontend/static/css/main.0e111581.css",
+    "main.js": "/aspire-frontend/static/js/main.d65003be.js",
+    "static/js/787.2056b21e.chunk.js": "/aspire-frontend/static/js/787.2056b21e.chunk.js",
+    "static/media/aspire-logo.svg": "/aspire-frontend/static/media/aspire-logo.1793a41e92134ada333ae8c4274bf194.svg",
+    "static/media/Aspire Logo-1.svg": "/aspire-frontend/static/media/Aspire Logo-1.3abc1d46a7b2315a82eb71bf8fe7d3ab.svg",
+    "static/media/Set spend limit.svg": "/aspire-frontend/static/media/Set spend limit.99d1c1d660567c51a12f24368884ed69.svg",
+    "static/media/slick.svg": "/aspire-frontend/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/aspire-frontend/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/aspire-frontend/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/Freeze card.svg": "/aspire-frontend/static/media/Freeze card.00ab278b266ef73ae6f770e9f821df0d.svg",
+    "static/media/Visa Logo.svg": "/aspire-frontend/static/media/Visa Logo.3329af88ff57d3a84683c2a7b8fd4418.svg",
+    "static/media/Account.svg": "/aspire-frontend/static/media/Account.6d60dc56094de473a4b3ab8048e0b653.svg",
+    "static/media/Replace card.svg": "/aspire-frontend/static/media/Replace card.ced491ddb0d56063cb5b03870c73dae2.svg",
+    "static/media/Group 11889.svg": "/aspire-frontend/static/media/Group 11889.0104285d070280af2409797b3043e5f4.svg",
+    "static/media/Payments.svg": "/aspire-frontend/static/media/Payments.41a65d547226d140cc3c93251b4214fb.svg",
+    "static/media/slick.woff": "/aspire-frontend/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/GPay.svg": "/aspire-frontend/static/media/GPay.eaed52d7619e425ba171e0eae5c2e160.svg",
+    "static/media/Home copy.svg": "/aspire-frontend/static/media/Home copy.0148478f4b27346792b8b66b98b17e2b.svg",
+    "static/media/Home.svg": "/aspire-frontend/static/media/Home.e0679a415359479209d8cdc8675e75e6.svg",
+    "static/media/Card.svg": "/aspire-frontend/static/media/Card.ee434445cf9410bb8b5f048c2f53333e.svg",
+    "static/media/megaphone.svg": "/aspire-frontend/static/media/megaphone.987d5442ff87749a07ec92d0a1d4732c.svg",
+    "static/media/flights.svg": "/aspire-frontend/static/media/flights.3f467d17c26b83c6e532b36f42dd22eb.svg",
+    "static/media/Credit.svg": "/aspire-frontend/static/media/Credit.786dc9e19e93ddd99c499fdcb756acc3.svg",
+    "static/media/remove_red_eye-24px.svg": "/aspire-frontend/static/media/remove_red_eye-24px.b029a7d995bee60a0d2f1cb71f1fe5db.svg",
+    "static/media/file-storage-1.svg": "/aspire-frontend/static/media/file-storage-1.94cd9b3b9c67ec365947f47ea1b492de.svg",
+    "index.html": "/aspire-frontend/index.html",
+    "static/media/Deactivate card.svg": "/aspire-frontend/static/media/Deactivate card.128dcef0dedf9219b9f5b84a14eb3272.svg",
+    "static/media/business-and-finance-1.svg": "/aspire-frontend/static/media/business-and-finance-1.d5f39d211419c560ef371ea1f037d009.svg",
+    "static/media/down-arrow.svg": "/aspire-frontend/static/media/down-arrow.6120f65101a5c87261290d2d452dc806.svg",
+    "static/media/up-arrow.svg": "/aspire-frontend/static/media/up-arrow.158a1744d113c3be1bf9d6b7f07f2396.svg",
+    "static/media/add.svg": "/aspire-frontend/static/media/add.8018c24dadd1893846dac2e2f16aa85a.svg",
+    "static/media/next.svg": "/aspire-frontend/static/media/next.78705265fadf6d948d422c53607c2d26.svg",
+    "main.0e111581.css.map": "/aspire-frontend/static/css/main.0e111581.css.map",
+    "main.d65003be.js.map": "/aspire-frontend/static/js/main.d65003be.js.map",
+    "787.2056b21e.chunk.js.map": "/aspire-frontend/static/js/787.2056b21e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e111581.css",
+    "static/js/main.d65003be.js"
+  ]
+}
