@@ -44,12 +44,12 @@ Before running the project, you need to have Node.js and npm installed on your s
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+git clone https://github.com/habibdeoraji/aspire-frontend.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd YOUR-REPOSITORY
+cd aspire-frontend
 ```
 
 3. Install NPM packages with the following command. The `--legacy-peer-deps` flag is used to avoid conflicts between peer dependencies:
