@@ -1,10 +1,10 @@
 import React from "react";
-import { Typography, Button, Box, useMediaQuery } from "@material-ui/core";
-import { ReactComponent as AddIcon } from "./../../assets/icons/add.svg";
+import { Typography, Box, useMediaQuery } from "@material-ui/core";
 import CurrencyChip from "./CurrencyChip";
 import { useTheme } from "@emotion/react";
+import AddCardModal from "../Modals/AddCardModal";
 
-function BalanceInfo() {
+const BalanceInfo = ({reftechCards}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -16,7 +16,7 @@ function BalanceInfo() {
   };
 
   const balanceTextStyle = {
-    color: isMobile?'white':"black",
+    color: isMobile ? "white" : "black",
     margin: 0,
     fontSize: "14px",
     marginBottom: "8px",
@@ -28,16 +28,7 @@ function BalanceInfo() {
     color: isMobile ? "white" : "black",
   };
 
-  const buttonStyle = isMobile ? {
-    // backgroundColor: theme.palette.primary[100],
-    color: theme.palette.primary[100],
-    fontWeight: "bold",
-    border:'none'
-  } :{
-    backgroundColor: theme.palette.primary[200],
-    color: theme.palette.common.white,
-    fontWeight: "bold",
-  };
+
 
   return (
     <Box style={balanceStyle}>
@@ -52,15 +43,9 @@ function BalanceInfo() {
           </Typography>
         </Box>
       </Box>
-      <Button
-        variant="outlined"
-        startIcon={<AddIcon  style={{ color: isMobile && theme.palette.primary[100] }} />}
-        style={{ ...buttonStyle, textTransform: 'none' }}
-      >
-        New card
-      </Button>
+      <AddCardModal/>
     </Box>
   );
-}
+};
 
 export default BalanceInfo;

@@ -6,10 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 import DebitCard from "./DebitCard";
 import { useTheme } from "@emotion/react";
 
-const CardCarousel = ({ slides = [1, 2, 3] }) => {
+const CardCarousel = ({ cards=[],setActiveCard }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  console.log('cards',cards);
 
   // Custom styling for the dots
   const dotStyle = {
@@ -32,7 +34,15 @@ const CardCarousel = ({ slides = [1, 2, 3] }) => {
   // Carousel settings with custom dots
   const settings = {
     dots: true,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentSlide(newIndex)
+      // const activeCardId = cards[newIndex].id;
+      setActiveCard(cards[newIndex]);
+    },
+  //   afterChange: currentIndex => {
+  //     const activeCardId = cards[currentIndex].id;
+  //     setActiveCard(activeCardId);
+  // },
     centerMode: isMobile? true:false,
     speed: 500,
     slidesToShow: 1,
@@ -50,9 +60,9 @@ const CardCarousel = ({ slides = [1, 2, 3] }) => {
 
   return (
     <Slider {...settings}>
-      {slides.map((slide, index) => (
+      {cards.map((cardDetails, index) => (
         <div key={index}>
-          <DebitCard />
+          <DebitCard cardDetails={cardDetails} />
         </div>
       ))}
     </Slider>

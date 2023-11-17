@@ -10,8 +10,13 @@ import Cards from "./pages/Cards";
 import Payments from "./pages/Payments";
 import Credit from "./pages/Credit";
 import Settings from "./pages/Settings";
+import { useEffect } from "react";
+import { initializeData } from "./services/mockApiService";
 
 const App = () => {
+  useEffect(() => {
+    initializeData();
+  },[])
   return (
     <Router>
       <Routes>
