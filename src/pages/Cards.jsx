@@ -24,7 +24,6 @@ const Cards = () => {
       <Box
         style={{ display: "flex", justifyContent:"flex-end", }}
       >
-        
       </Box>
       <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0 }}>
         <BalanceInfo />

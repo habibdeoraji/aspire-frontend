@@ -74,7 +74,6 @@ const CardTabs=()=> {
           className="text_center"
           style={{
             color: isMobile ? "white" : theme.palette.primary.main,
-            paddingTop:!isMobile && "50%"
           }}
         >All company cards</TabPanel>
       </TabContext>
