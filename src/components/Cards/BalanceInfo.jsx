@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Typography, Box, useMediaQuery } from "@material-ui/core";
 import CurrencyChip from "./CurrencyChip";
 import { useTheme } from "@emotion/react";
 import AddCardModal from "../Modals/AddCardModal";
+import { CardsContext } from "../../pages/Cards";
 
 const BalanceInfo = () => {
   const theme = useTheme();
+  const { activeCard  } = useContext(CardsContext);
+  const account_balance = activeCard?.account_balance;
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const balanceStyle = {
@@ -28,7 +31,7 @@ const BalanceInfo = () => {
     color: isMobile ? "white" : "black",
   };
 
-
+console.log('account_balance',activeCard)
 
   return (
     <Box style={balanceStyle}>
@@ -39,7 +42,7 @@ const BalanceInfo = () => {
         <Box style={{ display: "flex", alignItems: "center" }}>
           <CurrencyChip />
           <Typography variant="h5" style={balanceAmountStyle}>
-            3,000
+            {account_balance}
           </Typography>
         </Box>
       </Box>

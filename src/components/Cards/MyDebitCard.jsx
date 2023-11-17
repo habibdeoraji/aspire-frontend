@@ -29,30 +29,22 @@ import { ReactComponent as BuisnessFinanceIcon } from "./../../assets/icons/busi
 import { ReactComponent as NextIcon } from "./../../assets/icons/next.svg";
 
 import CardCarousel from "../ElementaryComponents/CardCarousal";
-import { CardsContext } from "../../pages/Cards";
+import {  CardsContext } from "../../pages/Cards";
 import { recent_transactions } from "../../utils/transactionsData";
+import DeleteCardModal from "../Modals/DeleteCardModal";
 
 const MyDebitCard = () => {
   const theme = useTheme();
-  const { cards, setCards } = useContext(CardsContext);
+  const { cards, setCards, activeCard, setActiveCard } = useContext(CardsContext);
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showRecentTransactions, setShowRecentTransactions] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  // const [cards, setCards] = useState([]);
-  const [activeCard, setActiveCard] = useState(null);
-
-  useEffect(() => {
-    getCards().then((fetchedCards) => setCards(fetchedCards));
-  }, []);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   useEffect(() => {
     setActiveCard(cards[0]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards?.length]);
-
-  console.log("cards", cards);
-  console.log("activeCard", activeCard);
-
+  
   const customActionButtonStyle = {
     width: "20%",
     display: "flex",
@@ -82,6 +74,24 @@ const MyDebitCard = () => {
     }
   };
 
+  // Handle Card Delete
+  const handleConfirm = async () => {
+    const active_card_id = activeCard?.id;
+    const cardsData = JSON.parse(JSON.stringify(cards));
+    try {
+      await deleteCard(active_card_id);
+      const newData = cardsData.filter((card) => card.id !== active_card_id);
+      setCards(newData);
+      setOpenDeleteModal(false);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
+  const handleClose = () => {
+    setOpenDeleteModal(false);
+  };
+
   console.log("card updated", cards);
 
   return (
@@ -98,7 +108,7 @@ const MyDebitCard = () => {
         sx={{
           width: { xs: "100%", md: "52%" },
           backgroundColor: isMobile && "#0C365A",
-          overflowX:'hidden'
+          overflowX: "hidden",
         }}
       >
         <CardCarousel cards={cards} setActiveCard={setActiveCard} />
@@ -145,12 +155,20 @@ const MyDebitCard = () => {
               Replace card
             </Typography>
           </Button>
-          <Button style={{ ...customActionButtonStyle }}>
+          <Button
+            style={{ ...customActionButtonStyle }}
+            onClick={() => setOpenDeleteModal(true)}
+          >
             <CancelCardIcon />
             <Typography sx={{ ...customActionTexStyle, textTransform: "none" }}>
               Cancel card
             </Typography>
           </Button>
+          <DeleteCardModal
+            open={openDeleteModal}
+            handleClose={handleClose}
+            handleConfirm={handleConfirm}
+          />
         </Box>
       </Box>
 
@@ -232,8 +250,7 @@ const MyDebitCard = () => {
             </IconButton>
           </Box>
           {showRecentTransactions && (
-            <Box
-            style={{width:'100%', overflowX:'hidden'}}>
+            <Box style={{ width: "100%", overflowX: "hidden" }}>
               <Box
                 style={{
                   padding: "1.5rem",
@@ -242,8 +259,14 @@ const MyDebitCard = () => {
                 }}
               >
                 {recent_transactions?.map((transaction) => {
-                  const { icon, merchant, description, date, amount, iconColor } =
-                    transaction;
+                  const {
+                    icon,
+                    merchant,
+                    description,
+                    date,
+                    amount,
+                    iconColor,
+                  } = transaction;
                   const isCredit = amount.trim().charAt(0) === "+";
                   return (
                     <Box
@@ -253,17 +276,19 @@ const MyDebitCard = () => {
                         padding: "0.5rem",
                       }}
                     >
-                      <Box style={{
-                        display: 'inline-flex',
-                        justifyContent: 'center',
-                        alignItems:'center',
-                        backgroundColor: iconColor,
-                        padding: '10px',
-                        minWidth: '20px',
-                        height:'20px',
-                        borderRadius:'50%',
-                        marginRight: '1rem',
-                      }}>
+                      <Box
+                        style={{
+                          display: "inline-flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          backgroundColor: iconColor,
+                          padding: "10px",
+                          minWidth: "20px",
+                          height: "20px",
+                          borderRadius: "50%",
+                          marginRight: "1rem",
+                        }}
+                      >
                         {icon}
                       </Box>
                       <Box style={{ width: "80%" }}>
@@ -289,7 +314,7 @@ const MyDebitCard = () => {
                             display: "flex",
                             alignItems: "center",
                             gap: 4,
-                            marginTop:'10px'
+                            marginTop: "10px",
                           }}
                         >
                           <BuisnessFinanceIcon

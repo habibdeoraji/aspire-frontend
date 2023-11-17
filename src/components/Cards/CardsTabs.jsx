@@ -5,9 +5,6 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { useTheme } from "@emotion/react";
-// import {
-//     useMediaQuery
-// } from "@mui/material";
 import { useMediaQuery } from "@material-ui/core";
 import MyDebitCard from "./MyDebitCard";
 
@@ -18,7 +15,6 @@ const CardTabs=()=> {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  
   const containerCustomStyle = isMobile
     ? {
         padding: 0,

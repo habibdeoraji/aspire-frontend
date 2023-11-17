@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Card,
   Typography,
-  IconButton,
   CardContent,
   Box,
   useMediaQuery,
@@ -122,7 +121,7 @@ const DebitCard = ({ cardDetails }) => {
               <Typography style={{ fontWeight: "bold", fontSize: "1rem", marginRight:'6px' }}>
                 CVV:
               </Typography>
-              <Typography style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+              <Typography style={{ fontWeight: "bold", fontSize: showCardNumber?"1rem":"1.5rem" }}>
                 {showCardNumber ? cvv : "***"}
               </Typography>
             </Box>
