@@ -92,8 +92,6 @@ const MyDebitCard = () => {
     setOpenDeleteModal(false);
   };
 
-  console.log("card updated", cards);
-
   return (
     <Box
       sx={{

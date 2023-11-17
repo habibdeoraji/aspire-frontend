@@ -28,7 +28,6 @@ const CardTabs=()=> {
       };
 
   const tabColor = isMobile ? "white" : theme.palette.grey[400];
-  console.log("color", tabColor);
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
       <TabContext value={value}>

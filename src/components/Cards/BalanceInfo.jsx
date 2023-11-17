@@ -33,8 +33,6 @@ const BalanceInfo = () => {
     color: isMobile ? "white" : "black",
   };
 
-console.log('account_balance',activeCard)
-
   return (
     <Box style={{...balanceStyle, position:'relative'}}>
       <Box>

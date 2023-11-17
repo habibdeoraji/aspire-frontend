@@ -17,7 +17,6 @@ const Cards = () => {
     getCards().then((fetchedCards) => setCards(fetchedCards));
   }, []);
 
-  console.log("cards", cards);
   return (
     <CardsContext.Provider
       value={{ cards, setCards, activeCard, setActiveCard }}

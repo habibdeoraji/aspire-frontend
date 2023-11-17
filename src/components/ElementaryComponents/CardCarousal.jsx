@@ -11,8 +11,6 @@ const CardCarousel = ({ cards=[],setActiveCard }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  console.log('cards',cards);
-
   // Custom styling for the dots
   const dotStyle = {
     width: "12px",
