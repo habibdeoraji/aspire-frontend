@@ -23,10 +23,10 @@ const DebitCard = ({ cardDetails }) => {
   return (
     <Card
       sx={{
-        background: theme.palette.secondary.main,
+        background: "inherit",
         color: "white",
         borderRadius: "16px",
-        padding: "20px",
+        paddingTop: isMobile ?"60px":'60px',
         boxShadow: "none",
         margin: isMobile && "1.5rem",
         position: "relative",
@@ -35,14 +35,7 @@ const DebitCard = ({ cardDetails }) => {
       }}
       style={{ margin: "0 1rem" }}
     >
-      <CardContent
-        style={{
-          position: "relative",
-          height: "220px",
-          boxSizing: "border-box",
-        }}
-      >
-        <Button
+      <Button
           onClick={() => setShowCardNumber(!showCardNumber)}
           color="inherit"
           style={{
@@ -51,8 +44,10 @@ const DebitCard = ({ cardDetails }) => {
             borderRadius: "6px",
             borderBottomRightRadius: 0,
             position: "absolute",
-            top: "-18px",
-            right: "-18px",
+            top: "24px",
+            right: "0px",
+            padding:'8px',
+            paddingBottom: '25px',
             width: "190px",
             display: "flex",
             justifyContent: "space-between",
@@ -70,6 +65,18 @@ const DebitCard = ({ cardDetails }) => {
             {showCardNumber ? "Hide" : "Show"} card number{" "}
           </Typography>
         </Button>
+      <CardContent
+        style={{
+          position: "relative",
+          height:  isMobile ?"220px": "260px",
+          boxSizing: "border-box",
+          borderRadius: "16px",
+
+          // marginTop: '2rem',
+          width:'100%',
+          backgroundColor:theme.palette.secondary.main
+        }}
+      >
         <Box
           style={{
             display: "flex",
@@ -116,12 +123,12 @@ const DebitCard = ({ cardDetails }) => {
               Thru: {expiry_date}
             </Typography>
             <Box
-              style={{ color: "white", display: "flex" }}
+              style={{ color: "white", display: "flex",height:'20px' }}
             >
               <Typography style={{ fontWeight: "bold", fontSize: "1rem", marginRight:'6px' }}>
                 CVV:
               </Typography>
-              <Typography style={{ fontWeight: "bold", fontSize: showCardNumber?"1rem":"1.5rem" }}>
+              <Typography style={{ fontWeight: "bold", fontSize: showCardNumber?"1.05rem":"1.5rem" }}>
                 {showCardNumber ? cvv : "***"}
               </Typography>
             </Box>

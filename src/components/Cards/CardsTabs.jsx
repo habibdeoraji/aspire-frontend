@@ -21,14 +21,14 @@ const CardTabs=()=> {
         backgroundColor: theme.palette.primary[300],
       }
     : {
-        padding: "2.5rem",
+        padding: "0 2.5rem 2.5rem 2.5rem",
         border: `1px solid ${theme.palette.white[500]}`,
         boxShadow: "0px 2px 12px rgba(0, 0, 0, 0.1)",
         backgroundColor: "white",
       };
 
-  const color = isMobile ? theme.palette.primary[300] : theme.palette.grey[400];
-  console.log("color", color);
+  const tabColor = isMobile ? "white" : theme.palette.grey[400];
+  console.log("color", tabColor);
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
       <TabContext value={value}>
@@ -50,7 +50,7 @@ const CardTabs=()=> {
                 fontWeight: value === "1" ? "bold" : "normal",
                 opacity: value === "1" ? "100%" : "30%",
               }}
-              style={{ color: "white" }}
+              style={{ color: tabColor }}
             />
             <Tab
               label="All company cards"
@@ -60,7 +60,7 @@ const CardTabs=()=> {
                 fontWeight: value === "2" ? "bold" : "normal",
                 opacity: value === "2" ? "100%" : "30%",
               }}
-              style={{ color: "white" }}
+              style={{ color: tabColor }}
             />
           </TabList>
         </Box>
@@ -70,7 +70,14 @@ const CardTabs=()=> {
         >
           <MyDebitCard />{" "}
         </TabPanel>
-        <TabPanel value="2">All company cards</TabPanel>
+        <TabPanel
+          value="2"
+          className="text_center"
+          style={{
+            color: isMobile ? "white" : theme.palette.primary.main,
+            paddingTop:!isMobile && "50%"
+          }}
+        >All company cards</TabPanel>
       </TabContext>
     </Box>
   );

@@ -1,9 +1,11 @@
-import React from 'react'
+import { Box, useTheme, useMediaQuery } from "@mui/material";
+import React from "react";
 
-const Setting = () => {
-  return (
-    <div>Setting</div>
-  )
-}
+const Settings = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-export default Setting
+  return <Box className="text_center" style={ {color:isMobile?'White':theme.palette.primary.main}}>Settings</Box>;
+};
+
+export default Settings;

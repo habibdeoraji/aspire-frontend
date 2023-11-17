@@ -16,7 +16,7 @@ import { ReactComponent as HomeIcon } from "./../assets/icons/Home.svg";
 import { ReactComponent as CardIcon } from "./../assets/icons/Card.svg";
 import { ReactComponent as PaymentIcon } from "./../assets/icons/Payments.svg";
 import { ReactComponent as CreditIcon } from "./../assets/icons/Credit.svg";
-import { ReactComponent as AccountIcon } from "./../assets/icons/Account.svg";
+import { ReactComponent as UserIcon } from "./../assets/icons/Account.svg";
 import { ReactComponent as AspireLogo } from "./../assets/icons/aspire-logo.svg";
 
 const navigationMenuItems = [
@@ -43,7 +43,7 @@ const navigationMenuItems = [
   {
     text: "Settings",
     path: "/settings",
-    icon: <AccountIcon />,
+    icon: <UserIcon />,
   },
 ];
 
@@ -96,7 +96,7 @@ const Layout = () => {
       {isMobile ? (
         <BottomNavigation
           showLabels
-          style={{ position: "fixed", bottom: 0, width: "100%" , backgroundColor:'white', zIndex:100}}
+          style={{ position: "fixed", bottom: 0, width: "100%" , backgroundColor:theme.palette.white[400], zIndex:50}}
         >
           {navigationMenuItems.map((menuItem) => {
             const { text, path, icon } = menuItem;

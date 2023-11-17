@@ -17,10 +17,16 @@ const Cards = () => {
     getCards().then((fetchedCards) => setCards(fetchedCards));
   }, []);
 
-
-  console.log('cards',cards)
+  console.log("cards", cards);
   return (
-    <CardsContext.Provider value={{ cards, setCards, activeCard, setActiveCard }}>
+    <CardsContext.Provider
+      value={{ cards, setCards, activeCard, setActiveCard }}
+    >
+      <Box
+        style={{ display: "flex", justifyContent:"flex-end", }}
+      >
+        
+      </Box>
       <Box style={{ padding: isMobile ? 0 : "3.75rem", paddingTop: 0 }}>
         <BalanceInfo />
         <CardsTabs />

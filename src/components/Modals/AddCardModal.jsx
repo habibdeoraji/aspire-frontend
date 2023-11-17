@@ -80,11 +80,14 @@ const AddCardModal = () => {
           <Typography id="modal-title" variant="h6" component="h2">
             Enter the card name
           </Typography>
+          <Typography style={{opacity:"0.5", fontSize:'10px'}}>
+            Name should have min 3 chars, only letters and spaces are allowed
+          </Typography>
           <TextField
             id="modal-description"
             label="Card name"
             value={cardName}
-            onChange={(e) => setCardName(e.target.value.trim())}
+            onChange={(e) => setCardName(e.target.value)}
             fullWidth
             margin="normal"
           />
@@ -93,7 +96,7 @@ const AddCardModal = () => {
             variant="contained"
             color="primary"
             style={{ marginTop: "8px" }}
-            disabled={(cardName.length < 3) || !isValidName(cardName)}
+            disabled={(cardName.trim().length < 3) || !isValidName(cardName.trim())}
           >
             Add
           </Button>

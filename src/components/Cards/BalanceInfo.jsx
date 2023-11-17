@@ -4,6 +4,8 @@ import CurrencyChip from "./CurrencyChip";
 import { useTheme } from "@emotion/react";
 import AddCardModal from "../Modals/AddCardModal";
 import { CardsContext } from "../../pages/Cards";
+import { ReactComponent as AspireLogo } from "./../../assets/icons/Home copy.svg";
+
 
 const BalanceInfo = () => {
   const theme = useTheme();
@@ -34,7 +36,7 @@ const BalanceInfo = () => {
 console.log('account_balance',activeCard)
 
   return (
-    <Box style={balanceStyle}>
+    <Box style={{...balanceStyle, position:'relative'}}>
       <Box>
         <Typography variant="body2" style={balanceTextStyle}>
           Account balance
@@ -46,6 +48,8 @@ console.log('account_balance',activeCard)
           </Typography>
         </Box>
       </Box>
+
+      {isMobile && <AspireLogo style={{margin: '1rem', position:'absolute', right:40, top:-5, width:"35px", height:'35px'}} />}
       <AddCardModal/>
     </Box>
   );

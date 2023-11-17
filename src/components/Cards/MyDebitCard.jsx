@@ -184,6 +184,7 @@ const MyDebitCard = () => {
           paddingBottom: isMobile ? "5rem" : 0,
           background: "white",
           zIndex: 10,
+          marginTop:!isMobile && "60px"
         }}
       >
         <Box
@@ -258,7 +259,7 @@ const MyDebitCard = () => {
                   borderBottomLeftRadius: "1rem",
                 }}
               >
-                {recent_transactions?.map((transaction) => {
+                {recent_transactions?.map((transaction, index) => {
                   const {
                     icon,
                     merchant,
@@ -270,6 +271,7 @@ const MyDebitCard = () => {
                   const isCredit = amount.trim().charAt(0) === "+";
                   return (
                     <Box
+                      key={date+amount+index}
                       style={{
                         display: "flex",
                         borderBottom: "1px solid #F0F0F0",
