@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aspire-frontend/static/css/main.0e111581.css",
-    "main.js": "/aspire-frontend/static/js/main.d65003be.js",
+    "main.css": "/aspire-frontend/static/css/main.0744650a.css",
+    "main.js": "/aspire-frontend/static/js/main.dd91e61a.js",
     "static/js/787.2056b21e.chunk.js": "/aspire-frontend/static/js/787.2056b21e.chunk.js",
     "static/media/aspire-logo.svg": "/aspire-frontend/static/media/aspire-logo.1793a41e92134ada333ae8c4274bf194.svg",
     "static/media/Aspire Logo-1.svg": "/aspire-frontend/static/media/Aspire Logo-1.3abc1d46a7b2315a82eb71bf8fe7d3ab.svg",
@@ -32,12 +32,12 @@
     "static/media/up-arrow.svg": "/aspire-frontend/static/media/up-arrow.158a1744d113c3be1bf9d6b7f07f2396.svg",
     "static/media/add.svg": "/aspire-frontend/static/media/add.8018c24dadd1893846dac2e2f16aa85a.svg",
     "static/media/next.svg": "/aspire-frontend/static/media/next.78705265fadf6d948d422c53607c2d26.svg",
-    "main.0e111581.css.map": "/aspire-frontend/static/css/main.0e111581.css.map",
-    "main.d65003be.js.map": "/aspire-frontend/static/js/main.d65003be.js.map",
+    "main.0744650a.css.map": "/aspire-frontend/static/css/main.0744650a.css.map",
+    "main.dd91e61a.js.map": "/aspire-frontend/static/js/main.dd91e61a.js.map",
     "787.2056b21e.chunk.js.map": "/aspire-frontend/static/js/787.2056b21e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e111581.css",
-    "static/js/main.d65003be.js"
+    "static/css/main.0744650a.css",
+    "static/js/main.dd91e61a.js"
   ]
 }
